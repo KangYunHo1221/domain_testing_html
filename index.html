@@ -3,16 +3,28 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div styles="padding: 40px">
-      <h1 style="font-size: 100px">Oauth2 데모 - github.io</h1>
+      <h1 style="font-size: 100px">Oauth2 데모</h1>
       <h2 style="font-size: 60px">로그인하기</h2>
-      <button class="oauthSignInPush" style="font-size: 40px; border-radius: 10px; padding: 15px">
+      <button class="oauth1" style="font-size: 40px; border-radius: 10px; padding: 15px">
         토스로 로그인하기(개인정보3종)
       </button>
-      <button class="oauthSignInIntentUnsupported" style="font-size: 40px; border-radius: 10px; padding: 15px">
+      <button class="oauth2" style="font-size: 40px; border-radius: 10px; padding: 15px">
         토스로 로그인하기(intentUnsupported)
       </button>
-      <button class="oauthSignInAppOpen" style="font-size: 40px; border-radius: 10px; padding: 15px">
+      <button class="oauth3" style="font-size: 40px; border-radius: 10px; padding: 15px">
         토스로 로그인하기(앱오픈)
+      </button>
+      <button class="oauth4" style="font-size: 40px; border-radius: 10px; padding: 15px">
+        토스로 회원가입하기(개인정보3종)
+      </button>
+      <button class="oauth5" style="font-size: 40px; border-radius: 10px; padding: 15px">
+        토스로 회원가입하기(앱오픈)
+      </button>
+      <button class="oauth6" style="font-size: 40px; border-radius: 10px; padding: 15px">
+        토스로 스벅 회원가입 JOIN
+      </button>
+      <button class="oauth7" style="font-size: 40px; border-radius: 10px; padding: 15px">
+        토스로 스벅 회원가입 CHANGE_PERSONAL_INFO
       </button>
     </div>
   </head>
@@ -20,36 +32,90 @@
   <script type="text/javascript">
     var tossOauth = TossOauth();
 
-    const signInButton = document.querySelector(".oauthSignInPush");
-    signInButton.addEventListener("click", () => {
+    const button1 = document.querySelector('.oauth1');
+    button1.addEventListener('click', () => {
       tossOauth.start({
-        type: "push",
-        client_id: "wnjo5yivr4ftuwlea93n4zavezszx22o",
-        redirect_uri: "https://toss.im",
+        type: 'push',
+        client_id: '56gnin7f7285rm8lq7tm6xl1jtel6vhm',
+        redirect_uri: 'https://toss.im',
       });
     });
 
-    const signInIntentUnsupportedButton = document.querySelector(".oauthSignInIntentUnsupported");
-    signInIntentUnsupportedButton.addEventListener("click", () => {
+    const button2 = document.querySelector('.oauth2');
+    button2.addEventListener('click', () => {
       tossOauth.start({
-        type: "appOpen",
+        type: 'appOpen',
         intentUnsupported: true,
-        client_id: "wnjo5yivr4ftuwlea93n4zavezszx22o",
-        redirect_uri: "https://toss.im",
-      });
-    });
-
-    const signInAppOpenButton = document.querySelector(".oauthSignInAppOpen");
-    signInAppOpenButton.addEventListener("click", () => {
-      tossOauth.start({
-        type: "appOpen",
-        client_id: "wnjo5yivr4ftuwlea93n4zavezszx22o",
+        client_id: '56gnin7f7285rm8lq7tm6xl1jtel6vhm',
+        redirect_uri: 'https://toss.im',
         onSuccess: () => {
           alert('로그인성공 onsuccess');
         },
-        redirect_uri: "https://toss.im",
+      });
+    });
+
+    const button3 = document.querySelector('.oauth3');
+    button3.addEventListener('click', () => {
+      tossOauth.start({
+        type: 'appOpen',
+        client_id: '56gnin7f7285rm8lq7tm6xl1jtel6vhm',
+        onSuccess: () => {
+          alert('로그인성공 onsuccess');
+        },
+        redirect_uri: 'https://toss.im',
+      });
+    });
+
+    const button4 = document.querySelector('.oauth4');
+    button4.addEventListener('click', () => {
+      tossOauth.start({
+        type: 'push',
+        client_id: '6tz670wxwcx78rbfk9zznprsfwq7okv2',
+        onSuccess: () => {
+          alert('회원가입 onsuccess');
+        },
+        redirect_uri: 'https://toss.im',
+      });
+    });
+
+    const button5 = document.querySelector('.oauth5');
+    button5.addEventListener('click', () => {
+      tossOauth.start({
+        type: 'appOpen',
+        client_id: 'wlai57b8lykq5k1pt11as16ddh5ijj9c',
+        onSuccess: () => {
+          alert('로그인성공 onsuccess');
+        },
+        redirect_uri: 'https://toss.im',
+      });
+    });
+
+    const button6 = document.querySelector('.oauth6');
+    button6.addEventListener('click', () => {
+      tossOauth.start({
+        type: 'appOpen',
+        client_id: 'jhwpbbrd03iid9nynnpow4xchppundld',
+        onSuccess: () => {
+          alert('로그인성공 onsuccess');
+        },
+        oauth_policy: 'JOIN',
+        redirect_uri: 'https://toss.im',
+      });
+    });
+
+    const button7 = document.querySelector('.oauth7');
+    button7.addEventListener('click', () => {
+      tossOauth.start({
+        type: 'appOpen',
+        client_id: 'jhwpbbrd03iid9nynnpow4xchppundld',
+        onSuccess: () => {
+          alert('로그인성공 onsuccess');
+        },
+        oauth_policy: 'CHANGE_PERSONAL_INFO',
+        redirect_uri: 'https://toss.im',
       });
     });
   </script>
   <body topmargin="0" leftmargin="0" style="overflow: hidden"></body>
 </html>
+
